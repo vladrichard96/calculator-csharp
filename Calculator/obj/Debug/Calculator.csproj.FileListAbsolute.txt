@@ -1,0 +1,10 @@
+C:\учеба\стажировки\Calculator\bin\Debug\Calculator.exe.config
+C:\учеба\стажировки\Calculator\bin\Debug\Calculator.exe
+C:\учеба\стажировки\Calculator\bin\Debug\Calculator.pdb
+C:\учеба\стажировки\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+C:\учеба\стажировки\Calculator\obj\Debug\Calculator.Form1.resources
+C:\учеба\стажировки\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\учеба\стажировки\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\учеба\стажировки\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\учеба\стажировки\Calculator\obj\Debug\Calculator.exe
+C:\учеба\стажировки\Calculator\obj\Debug\Calculator.pdb
