@@ -118,6 +118,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "%";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -177,6 +178,7 @@
             this.button8.Text = "/";
             this.button8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -232,6 +234,7 @@
             this.button12.TabIndex = 12;
             this.button12.Text = "х";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
@@ -287,6 +290,7 @@
             this.button16.TabIndex = 16;
             this.button16.Text = "-";
             this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button17
             // 
@@ -328,6 +332,7 @@
             this.button19.TabIndex = 19;
             this.button19.Text = "=";
             this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button20
             // 
@@ -341,6 +346,7 @@
             this.button20.TabIndex = 20;
             this.button20.Text = "+";
             this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // textBox1
             // 

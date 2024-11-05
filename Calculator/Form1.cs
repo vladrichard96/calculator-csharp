@@ -12,7 +12,7 @@ namespace Calculator
 {
     public partial class Form1 : Form
     {
-        bool power, sign;
+        bool power;
         double result, left, right;
         char oper;
         public Form1()
@@ -44,10 +44,13 @@ namespace Calculator
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            if (power) result = Math.Sqrt(Convert.ToDouble(textBox1.Text));
+            if (power) 
+            { 
+            result = Math.Sqrt(Convert.ToDouble(textBox1.Text.Replace('.', ',')));
             int s = Convert.ToString(Math.Truncate(result)).Length;
             string str = Math.Round(result, 10 - s).ToString();
             textBox1.Text = str.Replace(',','.');
+            }
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -74,6 +77,24 @@ namespace Calculator
                 if (textBox1.Text != "0")
                     textBox1.Text = textBox1.Text + button7.Text;
                 else textBox1.Text = button7.Text;
+            }
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (power)
+            {
+                oper = '/';
+                if (left == 0)
+                {
+                    left = Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                    textBox1.Text = "0";
+                }
+                else
+                {
+                    right = Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                    left = left / right;
+                    textBox1.Text = "0";
+                }
             }
         }
         private void button9_Click(object sender, EventArgs e)
@@ -103,6 +124,24 @@ namespace Calculator
                 else textBox1.Text = button11.Text;
             }
         }
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (power)
+            {
+                oper = '*';
+                if (left == 0)
+                {
+                    left = Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                    textBox1.Text = "0";
+                }
+                else
+                {
+                    right = Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                    left = left * right;
+                    textBox1.Text = "0";
+                }
+            }
+        }
         private void button13_Click(object sender, EventArgs e)
         {
             if (power && textBox1.Text.Length < 11)
@@ -121,9 +160,6 @@ namespace Calculator
                 else textBox1.Text = button14.Text;
             }
         }
-
-        
-
         private void button15_Click(object sender, EventArgs e)
         {
             if (power && textBox1.Text.Length < 11)
@@ -131,6 +167,24 @@ namespace Calculator
                 if (textBox1.Text != "0")
                     textBox1.Text = textBox1.Text + button15.Text;
                 else textBox1.Text = button15.Text;
+            }
+        }
+        private void button16_Click(object sender, EventArgs e)
+        {
+            if (power)
+            {
+                oper = '-';
+                if (left == 0)
+                {
+                    left = Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                    textBox1.Text = "0";
+                }
+                else
+                {
+                    right = Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                    left = left - right;
+                    textBox1.Text = "0";
+                }
             }
         }
         private void button17_Click(object sender, EventArgs e)
@@ -142,11 +196,115 @@ namespace Calculator
                 else textBox1.Text = button17.Text;
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (power)
+            {
+                switch (oper)
+                {
+                    case '+':
+                        {
+                            result = left + (left*Convert.ToDouble(textBox1.Text.Replace('.', ','))/100);
+                            textBox1.Text = Convert.ToString(result).Replace(',', '.');
+                            left = 0; right = 0;
+                            break;
+                        }
+                    case '-':
+                        {
+                            result = left - (left * Convert.ToDouble(textBox1.Text.Replace('.', ',')) / 100);
+                            textBox1.Text = Convert.ToString(result).Replace(',', '.');
+                            left = 0; right = 0;
+                            break;
+                        }
+                    case '*':
+                        {
+                            result = left * Convert.ToDouble(textBox1.Text.Replace('.', ',')) / 100;
+                            int s = Convert.ToString(Math.Truncate(result)).Length;
+                            string str = Math.Round(result, 10 - s).ToString();
+                            textBox1.Text = Convert.ToString(str).Replace(',', '.');
+                            left = 0; right = 0;
+                            break;
+                        }
+                    case '/':
+                        {
+                            result = left / (left * Convert.ToDouble(textBox1.Text.Replace('.', ',')) / 100);
+                            int s = Convert.ToString(Math.Truncate(result)).Length;
+                            string str = Math.Round(result, 10 - s).ToString();
+                            textBox1.Text = Convert.ToString(str).Replace(',', '.');
+                            left = 0; right = 0;
+                            break;
+                        }
+                    default: break;
+                }
+            }
+        }
+
         private void button18_Click(object sender, EventArgs e)
         {
             if (power && textBox1.Text.Length < 11)
             {
                 if (textBox1.Text.Length >= 1 && !textBox1.Text.Contains(".")) textBox1.Text = textBox1.Text + button18.Text;
+            }
+        }
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if (power)
+            {
+                switch (oper)
+                {
+                    case '+':
+                    {
+                        result = left + Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                        textBox1.Text = Convert.ToString(result).Replace(',', '.');
+                        left = 0; right = 0;
+                        break;
+                    }
+                    case '-':
+                    {
+                        result = left - Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                        textBox1.Text = Convert.ToString(result).Replace(',', '.');
+                        left = 0; right = 0;
+                        break;
+                    }
+                    case '*':
+                    {
+                        result = left * Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                        int s = Convert.ToString(Math.Truncate(result)).Length;
+                        string str = Math.Round(result, 10 - s).ToString();
+                        textBox1.Text = Convert.ToString(str).Replace(',', '.');
+                        left = 0; right = 0;
+                        break;
+                    }
+                    case '/':
+                    {
+                        result = left / Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                        int s = Convert.ToString(Math.Truncate(result)).Length;
+                        string str = Math.Round(result, 10 - s).ToString();
+                        textBox1.Text = Convert.ToString(str).Replace(',', '.');
+                        left = 0; right = 0;
+                        break;
+                    }
+                    default: break;
+                }
+            }
+        }
+        private void button20_Click(object sender, EventArgs e)
+        {
+            if (power) 
+            {
+                oper = '+';
+                if (left == 0) 
+                {
+                    left = Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                    textBox1.Text = "0";
+                }
+                else
+                {
+                    right = Convert.ToDouble(textBox1.Text.Replace('.', ','));
+                    left = left + right;
+                    textBox1.Text = "0";
+                }
             }
         }
     }
